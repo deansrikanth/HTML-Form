@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="deansrikanth">
+    <meta name="description" content="This is a webpage with only HTML, which demonstrates my HTML knowledge.">
+    <title>HTML Only</title>
+</head>
+<body>
+    <!-- Semantic tags -->
+    <header>
+        <h1>Simple HTML Form</h1>
+    </header>
+    <main>
+        <!-- Form with method "POST" to send the request directly to the server for a response -->
+        <form method="post">
+            <!-- To add input fields such as login or sign-up page -->
+            <div>
+                <!-- Label for first name input -->
+                <label for="first-name">First Name</label><br>
+                <input type="text" id="first-name" name="first-name" required maxlength="10">
+            </div>
+            <div>
+                <!-- Label for last name input -->
+                <label for="last-name">Last Name</label><br>
+                <input type="text" id="last-name" name="last-name" required maxlength="10">
+            </div>
+            <div>
+                <!-- Label for age input -->
+                <label for="age">What is your age?</label>
+                <input type="number" id="age" name="age" required min="1" max="150">
+            </div>
+            <div>
+                <!-- Labels and radio buttons for gender selection -->
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="female" required>
+            </div>
+            <div>
+                <!-- Label and datalist for language input -->
+                <label for="language">Which language do you know?</label><br>
+                <input list="languages" id="language" name="language">
+                <datalist id="languages">
+                    <option value="C"></option>
+                    <option value="C++"></option>
+                    <option value="Java"></option>
+                    <option value="JavaScript"></option>
+                    <option value="Python"></option>
+                </datalist>
+            </div>
+            <div>
+                <label for="list">level</label>
+                <select name="list" id="list">
+                    <option value="beginner" label="Beginner"></option>
+                    <option value="medium" label="Medium"></option>
+                    <option value="advance" label="Advance"></option>
+                </select>
+            </div>
+            <div>
+                <label for="check">Click the checkbox to agree that <b>The above provided information by you is currect</b></label>
+                <input type="checkbox" id="check" name="check" required>
+            </div>
+            <button type="submit" onclick="displayDetails()">Submit</button>
+        </form>
+    </main>
+    <footer>
+        <!-- Footer content can be added here -->
+    </footer>
+    <script>
+        function displayDetails() {
+        // Prevent form submission
+        event.preventDefault();
+
+
+            // Collecting form data
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const age = document.getElementById('age').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const language = document.getElementById('language').value;
+            const level = document.getElementById('list').value;
+            const check = document.getElementById('check').checked;
+
+            // Displaying the collected data
+            alert(`Submitted Details:\n
+            First Name: ${firstName}\n
+            Last Name: ${lastName}\n
+            Age: ${age}\n
+            Gender: ${gender}\n
+            Language: ${language}\n
+            Level: ${level}\n
+            Agreed to terms: ${check ? 'Yes' : 'No'}`);
+        }
+    </script>
+</body>
+</html>
